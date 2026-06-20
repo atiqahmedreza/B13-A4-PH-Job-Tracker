@@ -74,3 +74,20 @@ function deleteJob(id) {
   jobs = jobs.filter((j) => j.id !== id);
   render();
 }
+
+
+// Tab switching
+document.querySelectorAll(".tab-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    activeTab = btn.dataset.tab;
+    document.querySelectorAll(".tab-btn").forEach((b) => {
+      b.classList.remove("bg-white", "shadow-sm", "text-primary");
+      b.classList.add("text-gray-500");
+    });
+    btn.classList.add("bg-white", "shadow-sm", "text-primary");
+    btn.classList.remove("text-gray-500");
+    render();
+  });
+});
+
+render();
