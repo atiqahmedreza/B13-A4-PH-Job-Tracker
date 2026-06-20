@@ -61,3 +61,10 @@ function render() {
   document.getElementById("rejectedCount").innerText = rejected;
   document.getElementById("tabCount").innerText = list.length;
 }
+
+
+// Toggle between tabs
+function setStatus(id, status) {
+  jobs.find((j) => j.id === id).status = status;
+  render();
+}
