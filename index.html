@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Application Tracker</title>
+  <link rel="icon" href="jobs.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Geist", "sans-serif"] },
+          colors: { primary: "#0014b5" },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-[#F1F2F4] font-sans text-gray-900">
+
+  <div class="max-w-3xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
+
+    <!-- Dashboard -->
+    <header class="mb-6">
+      <h1 class="text-xl sm:text-2xl font-bold mb-4">Job Application Tracker</h1>
+
+      <div class="grid grid-cols-3 gap-2 sm:gap-3">
+        <div class="bg-white rounded-xl p-3 sm:p-4 shadow-sm">
+          <p class="text-xs sm:text-sm text-gray-500 font-medium">Total</p>
+          <p id="totalCount" class="text-xl sm:text-2xl font-bold">0</p>
+        </div>
+        <div class="bg-white rounded-xl p-3 sm:p-4 shadow-sm">
+          <p class="text-xs sm:text-sm text-gray-500 font-medium">Interview</p>
+          <p id="interviewCount" class="text-xl sm:text-2xl font-bold text-green-600">0</p>
+        </div>
+        <div class="bg-white rounded-xl p-3 sm:p-4 shadow-sm">
+          <p class="text-xs sm:text-sm text-gray-500 font-medium">Rejected</p>
+          <p id="rejectedCount" class="text-xl sm:text-2xl font-bold text-red-600">0</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Available Jobs -->
+    <main class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-semibold">Available Jobs</h2>
+        <span class="text-sm text-gray-500 font-medium"><span id="tabCount">0</span> jobs</span>
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex gap-2 bg-[#F1F2F4] p-1 rounded-xl mb-5">
+        <button data-tab="all" class="tab-btn flex-1 py-2 rounded-lg text-sm font-medium bg-white shadow-sm text-primary">All</button>
+        <button data-tab="interview" class="tab-btn flex-1 py-2 rounded-lg text-sm font-medium text-gray-500">Interview</button>
+        <button data-tab="rejected" class="tab-btn flex-1 py-2 rounded-lg text-sm font-medium text-gray-500">Rejected</button>
+      </div>
+
+      <div id="jobsContainer" class="flex flex-col gap-4"></div>
+
+      <!-- Empty state -->
+      <div id="emptyState" class="hidden flex-col items-center text-center py-14">
+        <img src="jobs.png" alt="No jobs" class="w-16 h-16 mb-4" />
+        <p class="text-base font-semibold">No jobs available</p>
+        <p class="text-sm text-gray-500">Check back soon for new job opportunities</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
