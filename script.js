@@ -68,3 +68,9 @@ function setStatus(id, status) {
   jobs.find((j) => j.id === id).status = status;
   render();
 }
+
+// Delete job
+function deleteJob(id) {
+  jobs = jobs.filter((j) => j.id !== id);
+  render();
+}
